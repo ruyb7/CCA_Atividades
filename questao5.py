@@ -1,21 +1,26 @@
 ''' 
-QUESTÃO 4
+QUESTÃO 5
 
-Desenvolva um AFD que aceite strings com pelo menos um '0'.
+Implemente em Python um AFD que aceite qualquer string binária que comece e termine com o
+mesmo caractere.
 
 '''
 class AFD:
     def __init__(self):
-        self.states = ['q0', 'q1']
+        self.states = ['q0', 'q1', 'q2', 'q3']
         self.initial_state = 'q0'
-        self.final_states = ['q1']
+        self.final_states = ['q1', 'q2']
         self.current_state = self.initial_state
 
         self.transitions = {
-            ('q0', '0'): 'q1',
-            ('q0', '1'): 'q0',
-            ('q1', '0'): 'q1',
-            ('q1', '1'): 'q1'
+            ('q0', '0'): 'q2',
+            ('q0', '1'): 'q1',
+            ('q1', '0'): 'q3',
+            ('q1', '1'): 'q1',
+            ('q2', '0'): 'q2',
+            ('q2', '1'): 'q3',
+            ('q3', '0'): 'q2',
+            ('q3', '1'): 'q1',
         }
 
     def transition(self, symbol):
